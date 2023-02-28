@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+package zas.protobuf;
+
+option java_package = "vn.zalopay.zas.account.protobuf";
+option java_multiple_files = true;
+option java_outer_classname = "AccountManagement";
+
+message Account {
+  int64 id = 1;
+  string name = 2;
+  string password = 3;
+  string dob = 4;
+}
+
+message AccountCreateRequest {
+  string name = 1;
+  string password = 2;
+  string dob = 3;
+}
+
+message AccountCreateResponse {
+  int64 errorCode = 1;
+  string msg = 2;
+  Account account = 3;
+}
+
+message AccountUpdateRequest {
+  int64 id = 1;
+  string name = 2;
+  string password = 3;
+  string dob = 4;
+}
+
+message AccountUpdateResponse {
+  int64 errorCode = 1;
+  string msg = 2;
+  Account account = 3;
+}
+
+message AccountQueryRequest {
+  int64 id = 1;
+}
+
+message AccountQueryResponse {
+  int64 errorCode = 1;
+  string msg = 2;
+  Account account = 3;
+}
+
+service AccountService {
+  rpc accountCreate (AccountCreateRequest) returns (AccountCreateResponse);
+  rpc accountUpdate (AccountUpdateRequest) returns (AccountUpdateResponse);
+  rpc accountQuery (AccountQueryRequest) returns (AccountQueryResponse);
+}

@@ -1,0 +1,11 @@
+vertxConfig:
+  host: localhost
+  port: 50051
+
+mysqlConfig:
+  host: localhost
+  username: root
+  password: Headingto123/
+  port: 3307
+  poolSize: 64
+  driver: "com.mysql.cj.jdbc.Driver"

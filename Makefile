@@ -1,0 +1,2 @@
+server:
+  mvn exec:java
